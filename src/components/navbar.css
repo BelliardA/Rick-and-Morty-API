@@ -1,5 +1,5 @@
 .navbar{
-    width: 100vw;
+    width: auto;
     background-color:  var(--secondary-color);
     padding: 20px 0px 20px 0px;
 }
