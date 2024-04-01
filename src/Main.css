@@ -1,0 +1,13 @@
+:root{
+    --main-color: #222222;
+    --secondary-color: #FFFDD0;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+html{
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+}

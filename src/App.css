@@ -1,1 +1,26 @@
-/* a coder */
+.profiles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.btn-change{
+    width: 450px;
+    height: 50px;
+    background-color: var(--main-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.btn-change:hover{
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    font-weight: bold;
+    cursor: pointer;
+}

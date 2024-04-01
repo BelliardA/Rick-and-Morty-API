@@ -1,0 +1,10 @@
+.navbar{
+    width: 100vw;
+    background-color:  var(--secondary-color);
+    padding: 20px 0px 20px 0px;
+}
+.main-title{
+    color: var(--main-color);
+    font-size: 5rem;
+    text-align: center;
+}
