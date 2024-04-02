@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
+import TestSubmit from "./components/TestSubmit";
 
 function App() {
   const [characterRefresh, setCharacterRefresh] = useState(null);
@@ -26,28 +27,35 @@ function App() {
 
   //---------------------------Search----------------------------
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Dans handleSubmit" + inputValue);
-    fetch(`https://rickandmortyapi.com/api/character/?id=${inputValue}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.results.length > 0) {
-          setCharacterInput(data.results[0]);
-        } else {
-          alert("No character found");
-        }
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+    try {
+      const response = await fetch(
+        `https://rickandmortyapi.com/api/character/?id=${inputValue}`
+      );
+      if (!response.ok) {
+        throw new Error("Erreur lors de la requête");
+      }
+
+      const data = await response.json();
+      if (data.results.length > 0) {
+        setCharacterInput(data.results[inputValue]);
+      } else {
+        alert("No character found");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
   };
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
-    console.log("Dans handleChange" + inputValue);
+    console.log(inputValue);
   };
 
   return (
     <div>
+      <TestSubmit />
       <Navbar />
       <div className="profiles">
         {characterRefresh && <Profile {...characterRefresh} />}
