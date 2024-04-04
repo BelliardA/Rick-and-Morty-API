@@ -1,9 +1,8 @@
 import "./profile.css";
 
-const Profile = (character, { dark }) => {
-  const cardClass = dark ? "dark" : "light";
+const Profile = (character) => {
   return (
-    <div className={`card ${cardClass}`}>
+    <div className={"card"}>
       <h1>{character.name}</h1>
       <p>Dead or Alive : {character.status}</p>
       <p>Species : {character.species}</p>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Input from "./components/Input";
 
 function App() {
   const [characterRefresh, setCharacterRefresh] = useState(null);
-  const [characterInput, setCharacterInput] = useState(null);
-  const [inputValue, setInputValue] = useState("");
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -27,29 +27,6 @@ function App() {
     fetchRandomCharacter();
   };
 
-  //---------------------------Search----------------------------
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(
-        `https://rickandmortyapi.com/api/character/${inputValue}`
-      );
-      if (!response.ok) {
-        throw new Error("Erreur lors de la requête");
-      }
-
-      const data = await response.json();
-      setCharacterInput(data);
-    } catch (error) {
-      console.error("Error fetching data:", error.message);
-    }
-  };
-
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
   return (
     <div className="app">
       <div className="profiles">
@@ -59,21 +36,11 @@ function App() {
         </button>
       </div>
       {/* Rechcer grace a l'input */}
-      <div className="searchPart">
-        <h2>Search a character</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            className="input-search"
-            type="number"
-            value={inputValue}
-            onChange={handleChange}
-            placeholder="Entrez quelque chose..."
-          />
-          <button type="submit">Send</button>
-        </form>
-        <div className="profiles">
-          {characterInput && <Profile {...characterInput} dark={dark} />}
-        </div>
+      <div className="input">
+        <Input />
+      </div>
+      <div className="login">
+        <Login />
       </div>
     </div>
   );
