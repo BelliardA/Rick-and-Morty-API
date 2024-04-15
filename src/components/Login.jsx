@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Profile from "./Profile";
+import "./Login.css";
 
 const USERNAME = "tim";
 const PASSWORD = "lapin";
@@ -35,29 +34,26 @@ const Login = () => {
   }, [logged]);
 
   return (
-    <div>
-      <TextField
-        id="outlined-basic"
-        label="Outlined"
-        variant="outlined"
+    <div className="login-component">
+      <input
+        className="input-search"
+        placeholder="tim"
+        type="text"
         name="username"
-        placeholder="username"
         value={username}
         onChange={(event) => setUsername(event.target.value)}
       />
-      <TextField
-        id="outlined-basic"
-        label="Outlined"
-        variant="outlined"
-        name="password"
+      <input
+        className="input-search"
+        placeholder="lapin"
         type="password"
-        placeholder="password"
+        name="password"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
-      <Button variant="outlined" onClick={onLogin}>
+      <button className="btn-change" onClick={onLogin}>
         Login
-      </Button>
+      </button>
       {logged && (
         <div
           style={{

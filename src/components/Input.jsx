@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Profile from "./Profile";
+import "./Input.css";
 
 const Input = () => {
   const [characterInput, setCharacterInput] = useState(null);
@@ -28,7 +29,7 @@ const Input = () => {
   return (
     <div>
       <h2>Search a character</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="fom-input" onSubmit={handleSubmit}>
         <input
           className="input-search"
           type="number"
@@ -36,10 +37,12 @@ const Input = () => {
           onChange={handleChange}
           placeholder="Entrez quelque chose..."
         />
-        <button type="submit">Send</button>
+        <button className="btn-change" type="submit">
+          Send
+        </button>
       </form>
       <div className="profiles">
-        {characterInput && <Profile {...characterInput} />}
+        {characterInput && <Profile {...characterInput} dark={false} />}
       </div>
     </div>
   );
