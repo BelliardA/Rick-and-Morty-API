@@ -26,7 +26,7 @@ function Random() {
 
   return (
     <>
-      {characterRefresh && <Profile {...characterRefresh} dark={true} />}
+      {characterRefresh && <Profile {...characterRefresh} />}
       <button className="btn-change" onClick={handleClick}>
         change Character
       </button>

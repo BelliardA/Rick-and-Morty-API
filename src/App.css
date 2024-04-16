@@ -34,7 +34,6 @@
 }
 
 .searchPart{
-    background-color: var(--secondary-color);
     width: 100%;
     display: flex;
     flex-direction: column;

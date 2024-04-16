@@ -62,7 +62,7 @@ const Login = () => {
           }}
         >
           {character.map((character, index) => (
-            <Profile key={index} {...character} dark={false} />
+            <Profile key={index} {...character} />
           ))}
         </div>
       )}
