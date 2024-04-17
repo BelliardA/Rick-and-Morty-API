@@ -42,7 +42,7 @@ const Input = () => {
         </button>
       </form>
       <div className="profiles">
-        {characterInput && <Profile {...characterInput} />}
+        {characterInput && <Profile {...characterInput} dark={false} />}
       </div>
     </div>
   );

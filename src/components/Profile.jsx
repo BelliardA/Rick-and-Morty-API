@@ -1,8 +1,16 @@
 import "./profile.css";
 
 const Profile = (character) => {
+  let theme = "";
+
+  if (character.dark == true) {
+    theme = "dark";
+  } else {
+    theme = "light";
+  }
+
   return (
-    <div className={"card"}>
+    <div className={"card " + theme}>
       <h1>{character.name}</h1>
       <p>Dead or Alive : {character.status}</p>
       <p>Species : {character.species}</p>
